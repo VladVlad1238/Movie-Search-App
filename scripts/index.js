@@ -6,26 +6,44 @@ const params = new URLSearchParams(location.search);
 
 const id = params.get('id');
 
+
+/*fetch(`https://www.omdbapi.com/?s=fast&apikey=ae86f325`, {
+  method: 'GET'
+})
+  .then(response => response.json())
+  .then((res) => {
+    
+    
+  })*/
+
 const fetchHandler = () => {
 
-    fetch('https://www.omdbapi.com/?s=batman&apikey=ae86f325')
+    fetch('https://www.omdbapi.com/?s=batman&apikey=ae86f325', {
+      method: 'GET'
+    })
 
     .then(response => response.json())
 
     .then((res) => {
-
-        if(res.status < 200 && res.status > 400) {
-
-            return;
-
-        }
-
-    const getMovie = res.s;
-    movieListsNode.innerHTML = `<li>${getMovie}</li>`
+    const getBySearch = res;
+    
+    console.log(getBySearch)
+    movieListsNode.innerHTML = `<li>${getBySearch}</li>`
     });
-
 };
-
+fetchHandler()
 buttonNode.addEventListener('click', () => {
     fetchHandler()
 });
+
+
+
+/*fetch('https://www.omdbapi.com/?s=batman&apikey=ae86f325', {
+  method: 'GET'
+})
+
+.then(response => response.json())
+.then((res) => {
+  const getMovie = res;
+  console.log(getMovie)
+})*/
