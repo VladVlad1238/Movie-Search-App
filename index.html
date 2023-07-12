@@ -3,15 +3,49 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <link rel="stylesheet" href="styles/reset.css">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;700&display=swap" rel="stylesheet">
+
   <link rel="stylesheet" href="styles/index.css">
+
   <title>Movies-Search-App</title>
 </head>
 <body>
-  
-  <ul class="js-lists"></ul>
-  <button class="js-button">Click</button>
+  <div class="wrapper">
+        <header class="header">
+            <div class="container">
+                <h1 class="title">Movie search</h1>
+                <form id="form" class="form" action="">
+                    <input id="input" class="input" type="text" placeholder="Movie name" maxlength="150">
+                    <button id="button" class="button" type="submit">Find</button>
+                </form>
+            </div>
+        </header>
+        <main class="main">
+            <section class="movies">
+                <div class="container">
+                    <div id="movies" class="movies__inner">
+                        <!--<div class="movies__wrapper">
+                            <div class="movies__img-container">
+                                <img src="" alt="" class="movie__img">
+                            </div>
+                            <div class="movies__content-container">
+                                <h2 class="movies__title">Name: <span>Thor</span></h2>
+                                <p class="movies__year">Year: <span>2015</span></p>
+                                <p class="movies__type">Type: <span>Movie</span></p>
+                            </div>
+                        </div>-->
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
 
   <script src="scripts/index.js"></script>
+ <!-- <script src="/scripts/test.js"></script>-->
 </body>
 </html>

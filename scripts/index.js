@@ -1,49 +1,64 @@
-const inputNode = document.querySelector('.js-input');
-const buttonNode = document.querySelector('.js-button');
-const movieListsNode = document.querySelector('.js-lists');
-
-const params = new URLSearchParams(location.search);
-
-const id = params.get('id');
+const URL = 'https://www.omdbapi.com/?s=batman&apikey=ae86f325';
+const API = 'ae86f325';
 
 
-/*fetch(`https://www.omdbapi.com/?s=fast&apikey=ae86f325`, {
-  method: 'GET'
-})
-  .then(response => response.json())
-  .then((res) => {
-    
-    
-  })*/
+const inputNode = document.querySelector('#input');
+const formNode = document.querySelector('#form');
 
-const fetchHandler = () => {
+const inputValue = () => inputNode.value;
 
-    fetch('https://www.omdbapi.com/?s=batman&apikey=ae86f325', {
-      method: 'GET'
-    })
+const getDataFromUser = (e) => {
+  e.preventDefault();
 
-    .then(response => response.json())
+  const inputNodeValue = inputValue();
+  
+  getMovies(inputNodeValue);
+  clearInput();
+}
 
-    .then((res) => {
-    const getBySearch = res;
-    
-    console.log(getBySearch)
-    movieListsNode.innerHTML = `<li>${getBySearch}</li>`
-    });
+const clearInput = () => {
+  inputNode.value = "";
+  inputNode.focus();
 };
-fetchHandler()
-buttonNode.addEventListener('click', () => {
-    fetchHandler()
-});
 
+const getMovies = async (inputNodeValue) => {
+  try {
+    const resp = await fetch(`https://www.omdbapi.com/?s=${inputNodeValue}&apikey=${API}`);
+    const respData = await resp.json();
+    showMovies(respData);
+  } catch (error) {
+    console.log(error);
+  };
+};
 
+const showMovies = (data) => {
+  const moviesEl = document.getElementById('movies');
+  moviesEl.innerHTML = '';
 
-/*fetch('https://www.omdbapi.com/?s=batman&apikey=ae86f325', {
-  method: 'GET'
-})
+  if(data.Response === "True") {
+    data.Search.forEach((movie) => {
+      const movieEl = document.createElement('a');
+      movieEl.setAttribute('href', `movie.id${movie.imdbID}`);
+      movieEl.classList.add('movies__wrapper');
+      movieEl.setAttribute('id', movie.imdbID);
+      movieEl.innerHTML =  `
+        <div class="movies__img-container">
+          <img src="${movie.Poster}" alt="${movie.Title}" class="movie__img">
+          </div>
+          <div class="movies__content-container">
+            <h2 class="movies__title">Name: <span>${movie.Title}</span></h2>
+            <p class="movies__year">Year: <span>${movie.Year}</span></p>
+            <p class="movies__type">Type: <span>${movie.Type}</span></p>
+          </div>
+        </div>
+      `
+      moviesEl.appendChild(movieEl);
+    });
+  } else {
+    const errorMessage = document.createElement('p');
+    errorMessage.innerText = 'This movie is not definded';
+    moviesEl.appendChild(errorMessage);
+  }
+};
 
-.then(response => response.json())
-.then((res) => {
-  const getMovie = res;
-  console.log(getMovie)
-})*/
+formNode.addEventListener('submit', getDataFromUser);
