@@ -1,8 +1,7 @@
 html {
   scroll-behavior: smooth;
 }
-body,
-button {
+body{
   width: 100%;
   margin: 0 auto;
   font-family: 'Rubik', sans-serif;
@@ -84,4 +83,63 @@ button {
   flex-direction: column;
   gap: 20px;
   font-size: 20px;
+}
+
+
+.movie__card-container {
+  display: none;
+  position: fixed;
+  z-index: 100;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.5);
+  transition:  2s;
+}
+.movie__card-container--show {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.movie__card {
+  display: flex;
+  position: relative;
+  gap: 50px;
+  padding: 30px;
+  width: 900px;
+  height: 600px;
+  border: 1px solid white;
+  border-radius: 30px;
+  background-color: black;
+}
+
+.movie__card-content-container{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  font-size: 25px;
+}
+
+.movie__card-title{
+  margin-bottom: 30px;
+  font-size: 40px;
+}
+.card__img {
+  width: 300px;
+  height: 350px;
+}
+.movie__card-close-btn {
+  position: absolute;
+  right: 20px;
+  top: 30px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+.close__button-img {
+  width: 50px;
+  height: 50px;
 }
