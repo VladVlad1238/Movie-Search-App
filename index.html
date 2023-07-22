@@ -15,16 +15,22 @@
   <title>Movies-Search-App</title>
 </head>
 <body>
-  <div class="wrapper">
+    <div class="progress">
+        <span class="bar"></span>
+    </div>
+
+    <div class="wrapper">
         <header class="header">
             <div class="container">
                 <h1 class="title">Movie search</h1>
                 <form id="form" class="form" action="">
-                    <input id="input" class="input" type="text" placeholder="Movie name" maxlength="150">
+                    <input id="input" class="input" type="text" maxlength="150" required>
+                    <label for="input" class="input__lable" >Movie name</label>
                     <button id="button" class="button" type="submit">Find</button>
                 </form>
             </div>
         </header>
+
         <main class="main">
             <section class="movies">
                 <div class="container">
@@ -40,38 +46,38 @@
                             </div>
                         </div>-->
                     </div>
+
                     <div id="movie__card-container" class="movie__card-container">
-                        <div class="movie__card-wrapper">
-                            <div id="movie__card" class="movie__card">
-                                <div class="movie__card-img">
-                                    <img class="card__img" src="/img/166023638_f17859.jpg" alt="">
-                                </div>
-                                <div class="movie__card-content-container">
-                                    <h2 class="movie__card-title">Batman</h2>
-                                    <p class="movie__year">Year: <span></span></p>
-                                    <p class="movie__rated">Rated: <span></span></p>
-                                    <p class="movie__released">Released: <span></span></p>
-                                    <p class="movie__runtime">Runtime: <span></span></p>
-                                    <p class="movie__genre">Genre: <span></span></p>
-                                    <p class="movie__director">Director: <span></span></p>
-                                    <p class="movie__writer">Writer: <span></span></p>
-                                    <p class="movie__actors">Actors: <span></span></p>
-                                </div>
-                                <div class="movie__card-info">
-                                    <p class="movie__text"><span></span></p>
-                                </div>
-                                <button id="close-btn" class="movie__card-close-btn">
-                                    <img src="/img/close-circle-svgrepo-com (1).svg" alt="" class="close__button-img">
-                                </button>
+                        <!--<div id="movie__card" class="movie__card">
+                            <div class="movie__card-img">
+                                <img class="card__img" src="/img/166023638_f17859.jpg" alt="">
                             </div>
-                        </div>
+                            <div class="movie__card-content-container">
+                                <h2 class="movie__card-title">Batman</h2>
+                                <p class="movie__year">Year: <span></span></p>
+                                <p class="movie__rated">Rated: <span></span></p>
+                                <p class="movie__released">Released: <span></span></p>
+                                <p class="movie__runtime">Runtime: <span></span></p>
+                                <p class="movie__genre">Genre: <span></span></p>
+                                <p class="movie__director">Director: <span></span></p>
+                                <p class="movie__writer">Writer: <span></span></p>
+                                <p class="movie__actors">Actors: <span></span></p>
+                            </div>-->
+                            <button id="close-btn" class="movie__card-close-btn" type="button">
+                                <!--<img src="img/close-circle-svgrepo-com (1).svg" alt="" class="close__button-img">-->
+                            </button>
                     </div>
+                    <!--<div class="movie__card-info">
+                        <p class="movie__text"><span></span></p>
+                    </div>-->
                 </div>
             </section>
         </main>
     </div>
 
   <script src="scripts/index.js"></script>
- <!-- <script src="/scripts/test.js"></script>-->
 </body>
 </html>
+
+
+<!--переиминовать именам классов и айди-->
