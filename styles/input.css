@@ -1,0 +1,36 @@
+.input {
+  padding: 10px;
+  width: 450px;
+  height: 50px;
+  color: white;
+  background-color: transparent;
+  font-size: 30px;
+  outline: none;
+  border: none;
+  border-radius: 30px;
+  outline: 2px solid purple;
+  transition: outline-color 500ms;
+  cursor: pointer;
+  font-family: 'Rubik', sans-serif;
+}
+.input:is(:focus, :valid) {
+  outline-color: #3c50eb;
+}
+.input__lable {
+  position: absolute;
+  left: 10px;
+  font-size: 30px;
+  translate: 20px 20px;
+  color: white;
+  transition: translate 500ms, scale 500ms;
+}
+
+.input:focus +
+.input__lable,
+.input:valid +
+.input__lable {
+  padding-inline: 5px;
+  translate: 10px -14px;
+  scale: 0.8;
+  background-color: #000;
+}

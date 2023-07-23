@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="img/favicon.png" type="image/x-icon">
 
   <link rel="stylesheet" href="styles/reset.css">
   
@@ -19,14 +20,14 @@
         <span class="bar"></span>
     </div>
 
-    <div class="wrapper">
+    <div class="container">
         <header class="header">
-            <div class="container">
+            <div class="header__container">
                 <h1 class="title">Movie search</h1>
                 <form id="form" class="form" action="">
                     <input id="input" class="input" type="text" maxlength="150" required>
-                    <label for="input" class="input__lable" >Movie name</label>
-                    <button id="button" class="button" type="submit">Find</button>
+                    <label id="input__lable" class="input__lable" for="input">Movie name</label>
+                    <button id="submit__button" class="submit__button" type="submit">Find</button>
                 </form>
             </div>
         </header>
@@ -34,10 +35,10 @@
         <main class="main">
             <section class="movies">
                 <div class="container">
-                    <div id="movies" class="movies__inner">
+                    <div id="movies__list" class="movies__list">
                         <!--<div class="movies__wrapper">
                             <div class="movies__img-container">
-                                <img src="" alt="" class="movie__img">
+                                <img class="movies__img" src="" alt="">
                             </div>
                             <div class="movies__content-container">
                                 <h2 class="movies__title">Name: <span>Thor</span></h2>
@@ -63,8 +64,8 @@
                                 <p class="movie__writer">Writer: <span></span></p>
                                 <p class="movie__actors">Actors: <span></span></p>
                             </div>-->
-                            <button id="close-btn" class="movie__card-close-btn" type="button">
-                                <!--<img src="img/close-circle-svgrepo-com (1).svg" alt="" class="close__button-img">-->
+                            <button id="movie__card-close-btn" class="movie__card-close-btn" type="button">
+                                <!--<img src="img/close-circle-svgrepo-com (1).svg" alt="" class="movie__card-close-button-img">-->
                             </button>
                     </div>
                     <!--<div class="movie__card-info">
@@ -79,5 +80,3 @@
 </body>
 </html>
 
-
-<!--переиминовать именам классов и айди-->

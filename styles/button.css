@@ -1,0 +1,16 @@
+.submit__button {
+  padding: 10px;
+  width: 200px;
+  height: 60px;
+  font-size: 30px;
+  color: white;
+  background-color: purple;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+}
+.submit__button:hover {
+  background-color: transparent;
+  border: 2px solid purple;
+  color: purple;
+}
