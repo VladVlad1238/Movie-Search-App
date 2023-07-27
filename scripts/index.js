@@ -54,23 +54,23 @@ const getMoviesList = async (inputNodeValue) => {
 };
 
 //функция отрисовки списка + асинхоронная функция замыкания которая получает айди фильма
-const showMoviesList = (data) => {
+const showMoviesList = (movies) => {
   moviesElNode.innerHTML = '';
 
-  if (data.Response === 'True') {
-    data.Search.forEach((movie) => {
+  if (movies.Response === 'True') {
+    movies.Search.forEach((movie) => {
       const movieEl = document.createElement('div');
       movieEl.setAttribute('id', movie.imdbID);
       movieEl.classList.add('movies__wrapper');
+     
       movieEl.innerHTML = `
         <div class="movies__img-container">
-          <img  class="movies__img" src="${movie.Poster}" alt="${movie.Title}">
-          </div>
+          <img class="movies__img" src="${movie.Poster}" alt="${movie.Title}">
+        </div>
           <div class="movies__content-container">
-            <h2 class="movies__title">Name: <span>${movie.Title}</span></h2>
-            <p class="movies__year">Year: <span>${movie.Year}</span></p>
-            <p class="movies__type">Type: <span>${movie.Type}</span></p>
-          </div>
+          <h2 class="movies__title">Name: <span>${movie.Title}</span></h2>
+          <p class="movies__year">Year: <span>${movie.Year}</span></p>
+          <p class="movies__type">Type: <span>${movie.Type}</span></p>
         </div>
       `
       movieEl.addEventListener('click', async () => await getMovieInfo(movie.imdbID));
@@ -96,29 +96,29 @@ const getMovieInfo = async (movieID) => {
 };
 
 //функция отрисовки конкретного фильма
-const showMovieInfo = (data) => {
+const showMovieInfo = (movie) => {
   const movieCardEl = document.createElement('div');
   movieCardEl.classList.add('movie__card');
 
   movieCardEl.innerHTML = `
       <div class="inner-wrapper">
         <div class="movie__card-img">
-          <img class="card__img" src="${data.Poster}" alt="">
+          <img class="card__img" src="${movie.Poster}" alt="">
         </div>
         <div class="movie__card-content-container">
-          <h2 class="movie__card-title">${data.Title}</h2>
-          <p class="movie__year">Year: <span>${data.Year}</span></p>
-          <p class="movie__rated">Rated: <span>${data.Rated}</span></p>
-          <p class="movie__released">Released: <span>${data.Released}</span></p>
-          <p class="movie__runtime">Runtime: <span>${data.Runtime}</span></p>
-          <p class="movie__genre">Genre: <span>${data.Genre}</span></p>
-          <p class="movie__director">Director: <span>${data.Director}</span></p>
-          <p class="movie__writer">Writer: <span>${data.Writer}</span></p>
-          <p class="movie__actors">Actors: <span>${data.Actors}</span></p>
+          <h2 class="movie__card-title">${movie.Title}</h2>
+          <p class="movie__year">Year: <span>${movie.Year}</span></p>
+          <p class="movie__rated">Rated: <span>${movie.Rated}</span></p>
+          <p class="movie__released">Released: <span>${movie.Released}</span></p>
+          <p class="movie__runtime">Runtime: <span>${movie.Runtime}</span></p>
+          <p class="movie__genre">Genre: <span>${movie.Genre}</span></p>
+          <p class="movie__director">Director: <span>${movie.Director}</span></p>
+          <p class="movie__writer">Writer: <span>${movie.Writer}</span></p>
+          <p class="movie__actors">Actors: <span>${movie.Actors}</span></p>
         </div>
       </div>
       <div class="movie__card-info">
-        <p class="movie__text"><span>${data.Plot}</span></p>
+        <p class="movie__text"><span>${movie.Plot}</span></p>
       </div>
       <button id="movie__card-close-btn" class="movie__card-close-btn type="button" data-action="close">
         <img src="img/close-circle-svgrepo-com (1).svg" alt="" class="movie__card-close-button-img">
